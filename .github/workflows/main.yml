@@ -1,25 +1,15 @@
-name: Hello
-
+name: hi
 on:
-  issues:
-   types:
-     - opened
-
-
+  pull_request:
+      branches:
+        - 'main'
+        
 jobs:
-  newWorld: 
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-    steps:
-     - name: apple
-       run: echo '${{ toJSON(github.event) }}' | jq 
-     - name: number
-       run: echo '${{ github.event.issue.number }}'
-     - name: Create comment
-       uses: peter-evans/create-or-update-comment@v3
-       with:
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown**   
+   build:
+       runs-on: ubuntu-latest
+       
+       steps:
+       - uses: action/checkout@v3
+       - name: first
+         run: echo ${{ toJSON(github.event) }} | jq 
+       
