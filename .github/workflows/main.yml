@@ -4,7 +4,7 @@ on:
   issues:
    types:
      - opened
-  workflow_dispatch:
+
 
 jobs:
   newWorld: 
@@ -13,3 +13,5 @@ jobs:
     steps:
       - name: apple
         run: echo '${{ toJSON(github.event) }}' | jq 
+      - name: number
+        run: echo '${{ github.event.issue.number }}'
