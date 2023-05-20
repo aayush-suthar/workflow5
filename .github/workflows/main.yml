@@ -11,8 +11,4 @@ jobs:
 
     steps:
       - name: apple
-        run: echo "Hello World"
-      - name: banana
-        run: |
-             echo "Nice Raaa"
-             echo "Why raaaa"
+        run: echo '${{ toJSON(github.event) }}' | jq 
