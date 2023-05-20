@@ -9,7 +9,8 @@ on:
 jobs:
   newWorld: 
     runs-on: ubuntu-latest
-
+    permissions:
+      issues: write
     steps:
      - name: apple
        run: echo '${{ toJSON(github.event) }}' | jq 
