@@ -19,6 +19,6 @@ jobs:
        uses: peter-evans/create-or-update-comment@v3
        with:
           issue-number: ${{ github.event.issue.number }}
-          body: |
+          comments: |
             This is a multi-line test comment
             - With GitHub **Markdown**   
